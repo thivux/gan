@@ -13,7 +13,6 @@ class Discriminator(LightningModule):
             get_disc_block(hidden_dim*4, hidden_dim*2),
             get_disc_block(hidden_dim*2, hidden_dim),
             nn.Linear(hidden_dim, 1),
-            nn.Sigmoid()  # TODO: is adding sigmoid necessary?
         )
 
     def forward(self, image):

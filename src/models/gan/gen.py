@@ -15,7 +15,6 @@ class Generator(LightningModule):
             get_gen_block(hidden_dim*2, hidden_dim*4),
             get_gen_block(hidden_dim*4, hidden_dim*8),
             nn.Linear(hidden_dim*8, img_dim),
-            nn.Sigmoid() # result in range [0, 1]
         )
 
     def forward(self, noise): # noise.shape = (batch_size, z_dim)
