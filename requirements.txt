@@ -1,6 +1,6 @@
 # --------- pytorch --------- #
 pytorch-lightning==1.9.2
-torch==1.13.1
+torch==2.0.1
 torchmetrics==0.11.1
 torchvision==0.14.1
 
