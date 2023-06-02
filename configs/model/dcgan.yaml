@@ -1,0 +1,15 @@
+_target_: src.models.dcgan.dcgan_module.DCGANLitModule
+
+lr: 0.0002
+z_dim: 64 
+
+generator:
+  _target_: src.models.dcgan.gen.Generator
+  z_dim: ${model.z_dim}
+  im_chan: 1
+  hidden_dim: 64
+
+discriminator:
+  _target_: src.models.dcgan.disc.Discriminator
+  im_chan: 1
+  hidden_dim: 64
