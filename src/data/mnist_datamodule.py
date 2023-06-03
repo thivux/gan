@@ -42,6 +42,7 @@ class MNISTDataModule(LightningDataModule):
         batch_size: int = 64,
         num_workers: int = 0,
         pin_memory: bool = False,
+        transform: Optional[transforms.Compose] = None,
     ):
         super().__init__()
 
@@ -50,9 +51,11 @@ class MNISTDataModule(LightningDataModule):
         self.save_hyperparameters(logger=False)
 
         # data transformations
-        self.transforms = transforms.Compose(
-            [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
-        )
+        # self.transforms = transforms.Compose(
+        #     [transforms.ToTensor(), transforms.Normalize((0.13), (0.7,))]
+        #     # [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
+        # )
+        self.transforms = transform
 
         self.data_train: Optional[Dataset] = None
         self.data_val: Optional[Dataset] = None

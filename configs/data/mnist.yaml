@@ -3,4 +3,11 @@ data_dir: ${paths.data_dir}
 batch_size: 128
 train_val_test_split: [55_000, 5_000, 10_000]
 num_workers: 8
-pin_memory: False
+
+transform:
+  _target_: torchvision.transforms.Compose
+  transforms:
+    - _target_: torchvision.transforms.ToTensor
+    - _target_: torchvision.transforms.Normalize
+      mean: [0.13,]
+      std: [0.5,]
